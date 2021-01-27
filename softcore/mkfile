@@ -1,0 +1,35 @@
+</$objtype/mkfile
+
+SOURCES=\
+	softcore.fr\
+	ifbrack.fr\
+	prefix.fr\
+	prefix.fr\
+	ficl.fr\
+	jhlocal.fr\
+	marker.fr\
+	oo.fr\
+	classes.fr\
+	string.fr\
+	ficllocal.fr\
+	fileaccess.fr
+
+CC=pcc
+
+softcore.c: makesoftcore
+	makesoftcore $SOURCES
+
+makesoftcore: makesoftcore.$O lzcompress.$O bit.$O
+	$LD -o $target $prereq
+
+makesoftcore.$O: makesoftcore.c
+	$CC -I.. -c -o $target $prereq
+
+lzcompress.$O: ../lzcompress.c
+	$CC -I.. -c -o $target $prereq
+
+bit.$O: ../bit.c
+	$CC -I.. -c -o $target $prereq
+
+clean:
+	rm -f *.$O makesoftcore softcore.c

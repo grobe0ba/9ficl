@@ -1,0 +1,45 @@
+</amd64/mkfile
+
+CFLAGS=-I. -D_POSIX_SOURCE -D_SUSV2_SOURCE
+CC=pcc
+
+LIB=libficl.a
+
+OFILES=\
+	dictionary.$O\
+	system.$O\
+	fileaccess.$O\
+	float.$O\
+	double.$O\
+	prefix.$O\
+	search.$O\
+	softcore.$O\
+	stack.$O\
+	tools.$O\
+	vm.$O\
+	primitives.$O\
+	bit.$O\
+	lzuncompress.$O\
+	utility.$O\
+	hash.$O\
+	callback.$O\
+	word.$O\
+	extras.$O\
+	unix.$O
+
+HFILES=\
+	ficlplatform/unix.h
+
+CLEANFILES=libficl.a
+
+</sys/src/cmd/mklib
+
+%.$O: %.c
+	pcc $CFLAGS -c -o $target $stem.c
+
+softcore.$O:
+	cd softcore && mk && cd ..
+	$CC $CFLAGS -c -o softcore.$O softcore/softcore.c
+
+unix.$O:
+	$CC $CFLAGS -Ificlplatform -c -o unix.$O ficlplatform/unix.c
