@@ -4,9 +4,6 @@
 
 #define FICL_WANT_PLATFORM (1)
 
-#define FICL_PLATFORM_OS              "unix"
-#define FICL_PLATFORM_ARCHITECTURE    "unknown"
-
 #define FICL_PLATFORM_BASIC_TYPES     (1)
 #if defined(__amd64__) || defined(__alpha__)
 #define FICL_PLATFORM_ALIGNMENT       (8)

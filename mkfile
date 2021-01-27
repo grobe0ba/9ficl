@@ -10,5 +10,6 @@ lib:V:
 	mk -f mkfile.lib install
 
 clean:
+	cd softcore && mk clean && cd ..
 	mk -f mkfile.bin clean
 	mk -f mkfile.lib clean

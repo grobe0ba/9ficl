@@ -1,6 +1,6 @@
 </amd64/mkfile
 
-CFLAGS=-I. -D_POSIX_SOURCE -D_SUSV2_SOURCE
+CFLAGS=-I. -D__amd64__ -D__plan9__ -DFICL_PLATFORM_ARCHITECTURE="$objtype" -D_POSIX_SOURCE -D_SUSV2_SOURCE
 CC=pcc
 
 BIN=ficl
@@ -20,4 +20,4 @@ $O.out: main.$O
 	pcc $CFLAGS -c -o $target $stem.c
 
 clean:V:
-	rm -f ficl main.$O
+	rm -f ficl main.$O $O.out

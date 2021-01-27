@@ -1,6 +1,6 @@
 </amd64/mkfile
 
-CFLAGS=-I. -D_POSIX_SOURCE -D_SUSV2_SOURCE
+CFLAGS=-I. -D__amd64__ -D__plan9__ -DFICL_PLATFORM_ARCHITECTURE="$objtype" -D_POSIX_SOURCE -D_SUSV2_SOURCE
 CC=pcc
 
 LIB=libficl.a

@@ -163,7 +163,7 @@ extern "C" {
 	#include "ficlplatform/ansi.h"
 #elif defined(_WIN32)
 	#include "ficlplatform/win32.h"
-#elif defined(unix) || defined(__unix__) || defined(__unix)
+#elif defined(unix) || defined(__unix__) || defined(__unix) || defined(__plan9__)
 	#include "ficlplatform/unix.h"
 #else /* catch-all */
 	#include "ficlplatform/ansi.h"
@@ -212,7 +212,7 @@ extern "C" {
 ** (see ficlplatform/win32.c and ficlplatform/unix.c for example)
 */
 #if !defined (FICL_WANT_PLATFORM)
-#define FICL_WANT_PLATFORM (0)
+#define FICL_WANT_PLATFORM (1)
 #endif /* FICL_WANT_PLATFORM */
 
 
@@ -287,7 +287,7 @@ extern "C" {
 ** and prefix.fr (if included as part of softcore.c)
 */
 #if !defined FICL_WANT_EXTENDED_PREFIX
-#define FICL_WANT_EXTENDED_PREFIX (0)
+#define FICL_WANT_EXTENDED_PREFIX (1)
 #endif /* FICL_WANT_EXTENDED_PREFIX */
 
 /*
@@ -389,7 +389,7 @@ extern "C" {
 ** String constant describing the current operating system.
 */
 #if !defined (FICL_PLATFORM_OS)
-#define FICL_PLATFORM_OS              "unknown"
+#define FICL_PLATFORM_OS              "plan9"
 #endif
 
 /*
@@ -437,7 +437,7 @@ extern "C" {
 ** in the absence of another keyword.
 */
 #if !defined FICL_PLATFORM_INLINE
-#define FICL_PLATFORM_INLINE static
+#define FICL_PLATFORM_INLINE static inline
 #endif /* !defined FICL_PLATFORM_INLINE */
 
 /*
