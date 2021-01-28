@@ -1,4 +1,4 @@
-</amd64/mkfile
+</$objtype/mkfile
 
 CFLAGS=-I. -D__amd64__ -D__plan9__ -DFICL_PLATFORM_ARCHITECTURE="$objtype" -D_POSIX_SOURCE -D_SUSV2_SOURCE
 CC=pcc

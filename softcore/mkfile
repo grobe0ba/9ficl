@@ -1,4 +1,4 @@
-</$objtype/mkfile
+</$cputype/mkfile
 
 SOURCES=\
 	softcore.fr\
@@ -23,13 +23,13 @@ makesoftcore: makesoftcore.$O lzcompress.$O bit.$O
 	$LD -o $target $prereq
 
 makesoftcore.$O: makesoftcore.c
-	$CC -I.. -c -o $target $prereq
+	objtype=$cputype $CC -I.. -c -o $target $prereq
 
 lzcompress.$O: ../lzcompress.c
-	$CC -I.. -c -o $target $prereq
+	objtype=$cputype $CC -I.. -c -o $target $prereq
 
 bit.$O: ../bit.c
-	$CC -I.. -c -o $target $prereq
+	objtype=$cputype $CC -I.. -c -o $target $prereq
 
 clean:
 	rm -f *.$O makesoftcore softcore.c
